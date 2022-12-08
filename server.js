@@ -39,5 +39,33 @@ const startPromt = () =>{
 
             ]
         }
-    ])
+    ]).then((input) => {
+        const {options} = input;
+        if (options === "See departments"){
+            
+        }
+        if (options === "See roles"){
+            
+        }
+        if (options === "See employee list"){
+            
+        }
+        if (options === "Add new department"){
+            
+        }
+        if (options === "Add new role"){
+            
+        }
+        if (options === "Add new employee"){
+            
+        }
+        if (options === "Change employee role"){
+            
+        }
+        if (options === "Change employe manager"){
+            
+        }
+        
+    })
+    
 }
