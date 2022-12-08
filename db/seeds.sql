@@ -4,7 +4,7 @@ VALUES
 ('SUPPORT'),
 ('Healer');
 
-INSERT INTO role(title, salary department_ID)
+INSERT INTO role(title, salary department_idso)
 VALUES
 ('Samurai', 60000,1),
 ('Monk',65000,1),
