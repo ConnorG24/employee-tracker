@@ -20,3 +20,24 @@ onceConnected = () =>{
     //then prompt questions
     //add functions to handle question responses
 }
+
+const startPromt = () =>{
+    inquirer.prompt ([
+        {
+            type: 'list',
+            name: 'options',
+            message:'Choose one of the following commands',
+            options:[
+                'See departments',
+                'See roles',
+                'See employee list',
+                'Add new department',
+                'Add new role',
+                'Add new employee',
+                'Change employee role',
+                'Change employe manager'
+
+            ]
+        }
+    ])
+}
