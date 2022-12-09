@@ -58,7 +58,7 @@ const startPromt = () =>{
             getEmployee();
         }
         if (options === "Add new department"){
-            
+            newDepartment();
         }
         if (options === "Add new role"){
             
