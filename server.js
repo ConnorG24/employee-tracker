@@ -103,3 +103,31 @@ getEmployee = () =>{
         console.table(row);
     })
 }
+
+newDepartment= () =>{
+    inquirer.prompt([
+        {
+            type: 'input',
+            name:'newDepartment',
+            message:'Name your department',
+            validate: newDepartment =>{
+                if(!newDepartment){
+                    console.log('please enter a name')
+                    return false;
+                }else{ 
+                    return true;
+                }
+            }
+        }
+    ]).then(input =>{
+        const sql = 'INSERT INTO department (names)'
+        db.query(sql, input.newDepartment,(err,results) =>{
+            if (err)
+            throw err;
+
+        })
+    })
+    
+
+    
+}
