@@ -55,7 +55,7 @@ const startPromt = () =>{
             getRoles();
         }
         if (options === "See employee list"){
-            
+            getEmployee();
         }
         if (options === "Add new department"){
             
@@ -88,6 +88,15 @@ getDepartment = () =>{
 
 getRoles = () =>{
     const sql = 'SELECT * FROM roles'
+    db.query(sql, (err, row) =>{
+        if (err)
+        throw err; 
+        console.table(row);
+    })
+}
+
+getEmployee = () =>{
+    const sql = 'SELECT * FROM employee'
     db.query(sql, (err, row) =>{
         if (err)
         throw err; 
