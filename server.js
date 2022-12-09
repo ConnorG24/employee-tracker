@@ -1,23 +1,24 @@
-const express = require('express');
-const sequelize = require('./config/connection');
 const inquirer = require('inquirer')
+
 const mysql = require('mysql2');
-const cTable = require('console.table')
-const app = express();
-const PORT = process.env.PORT || 3001;
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
 
-
-sequelize.sync().then(() => {
-  app.listen(PORT, () => console.log('Connection Succsessful'));
-  onceConnected();
-});
+const db = mysql.createConnection(
+  {
+    host: 'localhost',
+    
+    user: 'root',
+    
+    password: process.env.DB_PASSWORD,
+    database: 'companyInc_db'
+  },
+  
+);
 
 onceConnected = () =>{
     //throw up some ascii art 
     //then prompt questions
+   // startPromt();
     //add functions to handle question responses
 }
 
@@ -68,4 +69,13 @@ const startPromt = () =>{
         
     })
     
+}
+
+getDepartment = () =>{
+    const sql = 'SELECT department.id AS id, department.name AS department FROM department'
+    sequelize.query(sql, (err, row) =>{
+        if (err)
+        throw err; 
+        console.table(row);
+    })
 }
