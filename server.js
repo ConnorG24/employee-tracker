@@ -9,15 +9,21 @@ const db = mysql.createConnection(
     
     user: 'root',
     
-    password: process.env.DB_PASSWORD,
+    password: '',
     database: 'companyInc_db'
   },
   
 );
-
+db.connect(err =>{
+    if(err)
+    throw (err)
+    console.log('connected to database')
+    onceConnected();
+})
 onceConnected = () =>{
     //throw up some ascii art 
     //then prompt questions
+    startPromt();
    // startPromt();
     //add functions to handle question responses
 }
@@ -28,7 +34,7 @@ const startPromt = () =>{
             type: 'list',
             name: 'options',
             message:'Choose one of the following commands',
-            options:[
+            choices:[
                 'See departments',
                 'See roles',
                 'See employee list',
@@ -43,7 +49,7 @@ const startPromt = () =>{
     ]).then((input) => {
         const {options} = input;
         if (options === "See departments"){
-            
+            getDepartment();
         }
         if (options === "See roles"){
             
@@ -72,8 +78,17 @@ const startPromt = () =>{
 }
 
 getDepartment = () =>{
-    const sql = 'SELECT department.id AS id, department.name AS department FROM department'
-    sequelize.query(sql, (err, row) =>{
+    const sql = 'SELECT * from department'
+    db.query(sql, (err, row) =>{
+        if (err)
+        throw err; 
+        console.table(row);
+    })
+}
+
+getRoles = () =>{
+    const sql = ''
+    db.query(sql, (err, row) =>{
         if (err)
         throw err; 
         console.table(row);
