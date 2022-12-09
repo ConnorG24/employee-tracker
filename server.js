@@ -1,5 +1,5 @@
-const inquirer = require('inquirer')
-
+const inquirer = require('inquirer');
+require('dotenv').config();
 const mysql = require('mysql2');
 
 
